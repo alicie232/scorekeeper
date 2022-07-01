@@ -23,9 +23,9 @@ const players = [
 function App() {
   return (
     <>
-      <heading>
+      <header>
         <h1>Game</h1>
-      </heading>
+      </header>
       <main>
         {players.map((player) => (
           <Player key={player.id} name={player.name} score={player.score} />
