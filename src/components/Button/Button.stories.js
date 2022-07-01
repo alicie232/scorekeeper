@@ -7,4 +7,6 @@ export default {
 
 export const Default = () => <Button>End game</Button>;
 
-export const RedButton = () => <Button background="red">Danger</Button>;
+export const TealButton = () => (
+  <Button background="lightseagreen">danger</Button>
+);
