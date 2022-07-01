@@ -1,5 +1,6 @@
 import Player from "./components/Player/Player.js";
 import Button from "./components/Button/Button.js";
+import { initialPreviousGames } from "./historyDB.js";
 
 const players = [
   {
