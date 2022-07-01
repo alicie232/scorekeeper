@@ -1,5 +1,7 @@
 import Player from "./components/Player/Player.js";
 import Button from "./components/Button/Button.js";
+import History from "./components/History/History.js";
+import { initialPreviousGames } from "./historyDB.js";
 
 const players = [
   {
@@ -22,14 +24,18 @@ const players = [
 function App() {
   return (
     <>
-      <heading>
+      <header>
         <h1>Game</h1>
-      </heading>
+      </header>
       <main>
         {players.map((player) => (
           <Player key={player.id} name={player.name} score={player.score} />
         ))}
         <Button background={"red"}>End game</Button>
+        <h2>Previous Games</h2>
+        {initialPreviousGames.map((game) => {
+          return <History key={game.id} game={game} />;
+        })}
       </main>
     </>
   );
