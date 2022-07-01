@@ -1,5 +1,6 @@
 import Player from "./components/Player/Player.js";
 import Button from "./components/Button/Button.js";
+
 const players = [
   {
     name: "John",
