@@ -1,3 +1,4 @@
+import styled from "styled-components";
 import Player from "./components/Player/Player.js";
 import Button from "./components/Button/Button.js";
 import History from "./components/History/History.js";
@@ -28,7 +29,7 @@ function App() {
       <header>
         <h1>Game</h1>
       </header>
-      <main>
+      <Main>
         {players.map((player) => (
           <Player key={player.id} name={player.name} score={player.score} />
         ))}
@@ -38,9 +39,13 @@ function App() {
         {initialPreviousGames.map((game) => {
           return <History key={game.id} game={game} />;
         })}
-      </main>
+      </Main>
     </>
   );
 }
 
+const Main = styled.main`
+  display: grid;
+  gap: 10px;
+`;
 export default App;
