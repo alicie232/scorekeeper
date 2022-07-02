@@ -1,9 +1,8 @@
 import styled from "styled-components";
-import History from "./components/History/History.js";
-import { initialPreviousGames } from "./historyDB.js";
 import { Route, Routes } from "react-router-dom";
 import Navigation from "./components/Navigation/Navigation.js";
 import HomePage from "./pages/HomePage.js";
+import HistoryPage from "./pages/HistoryPage.js";
 
 const players = [
   {
@@ -32,17 +31,7 @@ function App() {
       <Main>
         <Routes>
           <Route path="/" element={<HomePage players={players} />} />
-          <Route
-            path="/history"
-            element={
-              <>
-                <h2>Previous Games</h2>
-                {initialPreviousGames.map((game) => {
-                  return <History key={game.id} game={game} />;
-                })}
-              </>
-            }
-          />
+          <Route path="/history" element={<HistoryPage />} />
         </Routes>
       </Main>
       <Navigation />
