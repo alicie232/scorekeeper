@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export default function History({ game }) {
   return (
-    <section key={game.id}>
+    <section>
       <h3>Game</h3>
       <ul>
         {game.players.map((player) => (
