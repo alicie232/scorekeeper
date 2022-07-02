@@ -5,6 +5,7 @@ import History from "./components/History/History.js";
 import Form from "./components/Form/Form.js";
 import { initialPreviousGames } from "./historyDB.js";
 import { Route, Routes } from "react-router-dom";
+import Navigation from "./components/Navigation/Navigation.js";
 
 const players = [
   {
@@ -61,6 +62,7 @@ function App() {
           />
         </Routes>
       </Main>
+      <Navigation />
     </>
   );
 }
