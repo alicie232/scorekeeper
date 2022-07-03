@@ -1,8 +1,9 @@
 import styled from "styled-components";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function Player({ name, score }) {
-  const [count, setCount] = useState(0);
+  const initialState = () => Number(window.localStorage.getItem("count"));
+  const [count, setCount] = useState(initialState);
 
   function handleDecrementScore() {
     setCount(count - 1);
@@ -11,6 +12,11 @@ export default function Player({ name, score }) {
   function handleIncrementScore() {
     setCount(count + 1);
   }
+
+  useEffect(() => {
+    window.localStorage.setItem("count", count);
+  }, [count]);
+
   return (
     <PlayerWrapper>
       {name}
