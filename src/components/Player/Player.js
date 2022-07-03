@@ -1,15 +1,33 @@
 import styled from "styled-components";
+import { useState } from "react";
 
 export default function Player({ name, score }) {
+  const [count, setCount] = useState(0);
+
+  function handleDecrementScore() {
+    setCount(count - 1);
+  }
+
+  function handleIncrementScore() {
+    setCount(count + 1);
+  }
   return (
     <PlayerWrapper>
       {name}
       <PlayerScore>
-        <Button type="button" aria-label="Decrease score">
+        <Button
+          type="button"
+          aria-label="Decrease score"
+          onClick={handleDecrementScore}
+        >
           -
         </Button>
-        <span>{score}</span>
-        <Button type="button" aria-label="Increase score">
+        <span>{count}</span>
+        <Button
+          type="button"
+          aria-label="Increase score"
+          onClick={handleIncrementScore}
+        >
           +
         </Button>
       </PlayerScore>
