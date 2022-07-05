@@ -1,15 +1,39 @@
 import styled from "styled-components";
+import { useState, useEffect } from "react";
 
-export default function Player({ name, score }) {
+export default function Player({ name }) {
+  const initialState = () => Number(window.localStorage.getItem("score"));
+  const [score, setScore] = useState(initialState);
+
+  function handleDecrementScore() {
+    setScore(score - 1);
+  }
+
+  function handleIncrementScore() {
+    setScore(score + 1);
+  }
+
+  useEffect(() => {
+    window.localStorage.setItem("score", score);
+  }, [score]);
+
   return (
     <PlayerWrapper>
       {name}
       <PlayerScore>
-        <Button type="button" aria-label="Decrease score">
+        <Button
+          type="button"
+          aria-label="Decrease score"
+          onClick={handleDecrementScore}
+        >
           -
         </Button>
         <span>{score}</span>
-        <Button type="button" aria-label="Increase score">
+        <Button
+          type="button"
+          aria-label="Increase score"
+          onClick={handleIncrementScore}
+        >
           +
         </Button>
       </PlayerScore>
