@@ -1,21 +1,21 @@
 import styled from "styled-components";
 import { useState, useEffect } from "react";
 
-export default function Player({ name, score }) {
-  const initialState = () => Number(window.localStorage.getItem("count"));
-  const [count, setCount] = useState(initialState);
+export default function Player({ name }) {
+  const initialState = () => Number(window.localStorage.getItem("score"));
+  const [score, setScore] = useState(initialState);
 
   function handleDecrementScore() {
-    setCount(count - 1);
+    setScore(score - 1);
   }
 
   function handleIncrementScore() {
-    setCount(count + 1);
+    setScore(score + 1);
   }
 
   useEffect(() => {
-    window.localStorage.setItem("count", count);
-  }, [count]);
+    window.localStorage.setItem("score", score);
+  }, [score]);
 
   return (
     <PlayerWrapper>
@@ -28,7 +28,7 @@ export default function Player({ name, score }) {
         >
           -
         </Button>
-        <span>{count}</span>
+        <span>{score}</span>
         <Button
           type="button"
           aria-label="Increase score"
